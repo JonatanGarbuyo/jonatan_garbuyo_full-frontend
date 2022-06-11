@@ -1,9 +1,20 @@
-html,
+html {
+  font-size: 62.5%;
+}
+
 body {
-  padding: 0;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #222222;
+  color: var(--color-white);
+  font-size: var(--font-size-base);
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: auto;
+  max-width: var(--break-xxl);
+  padding: 0;
+  padding: 0;
+  width: 100%;
 }
 
 a {
@@ -13,4 +24,288 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Extra small devices Phones (<768px) (Class names :  */
+@media (max-width: 767px) {
+  .visible-xs-block {
+    display: block;
+  }
+  .hidden-xs {
+    display: none;
+  }
+}
+
+/* Small devices Tablets (≥768px) (Class names :  */
+@media (min-width: 768px) {
+  .visible-sm-block {
+    display: block;
+  }
+  .hidden-sm {
+    display: none;
+  }
+}
+
+/* Medium devices Desktops (≥992px) (Class names :  */
+@media (min-width: 992px) {
+  .visible-md-block {
+    display: block;
+  }
+  .hidden-md {
+    display: none;
+  }
+}
+
+/* Large devices Desktops (≥1200px) (Class names :  */
+@media (min-width: 1200px) {
+  .visible-lg-block {
+    display: block;
+  }
+  .hidden-lg {
+    display: none;
+  }
+}
+
+:root {
+  --border-width-default: 1px;
+  --border-width-input: 2px;
+  --border-width-input-overlay-unfocused: 1px;
+  --border-width-marked: 3px;
+  --border-width-spinner: 2px;
+  --border-width-tag: 2px;
+  --border-radius-none: 0;
+  --border-radius-small: 0.2rem;
+  --border-radius-medium: 0.4rem;
+  --border-radius-large: 0.6rem;
+  --border-radius-extra-large: 1rem;
+  --border-radius-extra-extra-large: 1.6rem;
+  --border-radius-rounded: 9000px;
+  --break-xs: 480px;
+  --break-sm: 768px;
+  --break-md: 1024px;
+  --break-lg: 1200px;
+  --break-xl: 1440px;
+  --break-xxl: 1600px;
+  --color-brand-lemon-pie: #d6f379;
+  --color-brand-muted-ice: #e0ebff;
+  --color-brand-muted-cupcake: #ffa3ee;
+  --color-brand-muted-mint: #8fffd2;
+  --color-brand-muted-sky: #7aa7ff;
+  --color-brand-muted-blush: #ffcdcc;
+  --color-brand-muted-canary: #f5f500;
+  --color-brand-muted-smoke: #d3d3d9;
+  --color-brand-muted-lavender: #d1b3ff;
+  --color-brand-muted-mustard: #ffd37a;
+  --color-brand-muted-emerald: #00f593;
+  --color-brand-muted-coral: #ff8280;
+  --color-brand-muted-ocean: #1345aa;
+  --color-brand-accent-grape: #5c16c5;
+  --color-brand-accent-dragonfruit: #ff38db;
+  --color-brand-accent-carrot: #e69900;
+  --color-brand-accent-sun: #f5f500;
+  --color-brand-accent-lime: #00f593;
+  --color-brand-accent-turquoise: #00f0f0;
+  --color-brand-accent-eggplant: #451093;
+  --color-brand-accent-wine: #ae1392;
+  --color-brand-accent-slime: #00f593;
+  --color-brand-accent-seafoam: #8fffd2;
+  --color-brand-accent-cherry: #eb0400;
+  --color-brand-accent-marine: #1f69ff;
+  --color-brand-accent-seaweed: #00a3a3;
+  --color-brand-accent-pebble: #848494;
+  --color-brand-accent-moon: #efeff1;
+  --color-brand-accent-fiji: #8fffd2;
+  --color-brand-accent-blueberry: #1f69ff;
+  --color-brand-accent-arctic: #00f0f0;
+  --color-brand-accent-highlighter: #f5f500;
+  --color-brand-accent-flamingo: #ff38db;
+  --color-brand-accent-ruby: #eb0400;
+  --color-brand-accent-punch: #ffcdcc;
+  --color-brand-accent-creamsicle: #ffd37a;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-red: #e91916;
+  --color-red-darker: #bb1411;
+  --color-orange: #ffd37a;
+  --color-yellow: #ffd37a;
+  --color-green: #00f593;
+  --color-green-darker: #00ad96;
+  --color-blue: #1f69ff;
+  --color-prime-blue: #0e9bd8;
+  --color-magenta: #c53dff;
+  --color-error: #eb0400;
+  --color-warn: #ffd37a;
+  --color-success: #00f593;
+  --color-info: #1f69ff;
+  --color-accent: #9147ff;
+  --color-hinted-grey-1: #0e0e10;
+  --color-hinted-grey-2: #18181b;
+  --color-hinted-grey-3: #1f1f23;
+  --color-hinted-grey-4: #26262c;
+  --color-hinted-grey-5: #323239;
+  --color-hinted-grey-6: #3b3b44;
+  --color-hinted-grey-7: #53535f;
+  --color-hinted-grey-8: #848494;
+  --color-hinted-grey-9: #adadb8;
+  --color-hinted-grey-10: #c8c8d0;
+  --color-hinted-grey-11: #d3d3d9;
+  --color-hinted-grey-12: #dedee3;
+  --color-hinted-grey-13: #e6e6ea;
+  --color-hinted-grey-14: #efeff1;
+  --color-hinted-grey-15: #f7f7f8;
+  --color-transparent: transparent;
+  --color-opac-b-1: rgba(0, 0, 0, 0.05);
+  --color-opac-b-2: rgba(0, 0, 0, 0.1);
+  --color-opac-b-3: rgba(0, 0, 0, 0.15);
+  --color-opac-b-4: rgba(0, 0, 0, 0.2);
+  --color-opac-b-5: rgba(0, 0, 0, 0.25);
+  --color-opac-b-6: rgba(0, 0, 0, 0.3);
+  --color-opac-b-7: rgba(0, 0, 0, 0.4);
+  --color-opac-b-8: rgba(0, 0, 0, 0.5);
+  --color-opac-b-9: rgba(0, 0, 0, 0.6);
+  --color-opac-b-10: rgba(0, 0, 0, 0.7);
+  --color-opac-b-11: rgba(0, 0, 0, 0.75);
+  --color-opac-b-12: rgba(0, 0, 0, 0.8);
+  --color-opac-b-13: rgba(0, 0, 0, 0.85);
+  --color-opac-b-14: rgba(0, 0, 0, 0.9);
+  --color-opac-b-15: rgba(0, 0, 0, 0.95);
+  --color-opac-w-1: hsla(0, 0%, 100%, 0.05);
+  --color-opac-w-2: hsla(0, 0%, 100%, 0.1);
+  --color-opac-w-3: hsla(0, 0%, 100%, 0.15);
+  --color-opac-w-4: hsla(0, 0%, 100%, 0.2);
+  --color-opac-w-5: hsla(0, 0%, 100%, 0.25);
+  --color-opac-w-6: hsla(0, 0%, 100%, 0.3);
+  --color-opac-w-7: hsla(0, 0%, 100%, 0.4);
+  --color-opac-w-8: hsla(0, 0%, 100%, 0.5);
+  --color-opac-w-9: hsla(0, 0%, 100%, 0.6);
+  --color-opac-w-10: hsla(0, 0%, 100%, 0.7);
+  --color-opac-w-11: hsla(0, 0%, 100%, 0.75);
+  --color-opac-w-12: hsla(0, 0%, 100%, 0.8);
+  --color-opac-w-13: hsla(0, 0%, 100%, 0.85);
+  --color-opac-w-14: hsla(0, 0%, 100%, 0.9);
+  --color-opac-w-15: hsla(0, 0%, 100%, 0.95);
+  --color-twitter: #1da1f2;
+  --color-facebook: #3b5998;
+  --color-reddit: #ff4500;
+  --color-snapchat: #fffc00;
+  --color-instagram: #405de6;
+  --color-youtube: #cd201f;
+  --color-paypal: #009cde;
+  --color-paypal-blue: #009cde;
+  --color-paypal-yellow: #fcc439;
+  --color-vk: #45668e;
+  --color-amazon: #fad677;
+  --button-size-small: 2.4rem;
+  --button-size-default: 3rem;
+  --button-size-large: 3.6rem;
+  --button-text-small: 1.2rem;
+  --button-text-default: 1.3rem;
+  --button-text-large: 1.4rem;
+  --input-text-small: 1.2rem;
+  --input-text-default: 1.3rem;
+  --input-text-large: 1.4rem;
+  --input-size-small: 2.4rem;
+  --input-size-default: 3rem;
+  --input-size-large: 3.6rem;
+  --font-size-1: 6.4rem;
+  --font-size-2: 5.4rem;
+  --font-size-3: 4rem;
+  --font-size-4: 3.6rem;
+  --font-size-5: 2.48rem;
+  --font-size-6: 1.6rem;
+  --font-size-7: 1.4rem;
+  --font-size-8: 1.3rem;
+  --font-size-base: 1.3rem;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-bolder: 900;
+  --font-weight-hdr: 400;
+  --line-height-body: 1.5;
+  --line-height-heading: 1.2;
+  --base-rem-unit: 10;
+  --grid-columns: 12;
+  --grid-gutter-width: 1.5rem;
+  --grid-gutter-width-lg: 2rem;
+  --grid-gutter-width-sm: 1rem;
+  --grid-gutter-width-xs: 0.5rem;
+
+  --space-0: 0;
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+  --space-4: 4rem;
+  --space-5: 5rem;
+  --space-6: 6rem;
+  --space-7: 7rem;
+  --space-8: 8rem;
+  --space-9: 9rem;
+  --space-10: 10rem;
+  --space-auto: auto;
+  --space-05: 0.5rem;
+  --timing-short: 100ms;
+  --timing-medium: 150ms;
+  --timing-long: 200ms;
+  --z-index-modal: 5000;
+  --z-index-notification: 4000;
+  --z-index-overlay: 3000;
+  --z-index-balloon: 2000;
+  --z-index-sticky: 1000;
+  --z-index-above: 10;
+  --z-index-default: 1;
+  --z-index-below: -1;
+
+  --color-text-button: var(--color-white);
+  --color-text-button-hover: var(--color-white);
+  --color-text-button-focus: var(--color-white);
+  --color-text-button-active: var(--color-white);
+  --color-text-button-secondary-hover: var(--color-hinted-grey-6);
+  --color-text-button-secondary-focus: var(--color-hinted-grey-6);
+  --color-text-button-secondary-active: var(--color-hinted-grey-6);
+  --color-text-button-text-hover: var(--color-opac-w-1);
+  --color-text-button-text-focus: var(--color-opac-w-1);
+  --color-text-button-text-active: var(--color-opac-p-2);
+  --color-text-button-status: var(--color-white);
+  --color-text-button-status-hover: var(--color-white);
+  --color-text-button-status-focus: var(--color-white);
+  --color-text-button-status-active: var(--color-white);
+  --color-text-button-success-hover: var(--color-black);
+  --color-text-button-success-focus: var(--color-black);
+  --color-text-button-success-active: var(--color-black);
+  --color-text-button-alert: var(--color-black);
+  --color-text-button-alert-hover: var(--color-black);
+  --color-text-button-alert-focus: var(--color-black);
+  --color-text-button-alert-active: var(--color-black);
+  --color-text-button-overlay: var(--color-white);
+  --color-text-button-overlay-hover: var(--color-white);
+  --color-text-button-overlay-focus: var(--color-white);
+  --color-text-button-overlay-active: var(--color-white);
+  --color-text-interactable: currentColor;
+  --color-text-interactable-hover: var(--color-white);
+  --color-text-interactable-active: var(--color-white);
+  --color-text-interactable-inverted: var(--color-white);
+  --color-text-input-focus: transparent;
+  --color-border-button: var(--color-twitch-purple-7);
+  --color-border-button-hover: var(--color-twitch-purple-8);
+  --color-border-button-focus: var(--color-twitch-purple-9);
+  --color-border-button-active: var(--color-twitch-purple-8);
+  --color-border-button-disabled: var(--color-opac-w-1);
+  --color-border-button-status: var(--color-green);
+  --color-border-button-status-hover: var(--color-red-darker);
+  --color-border-button-status-focus: var(--color-red-darker);
+  --color-border-button-status-active: var(--color-red);
+  --color-border-button-success: var(--color-green);
+  --color-border-button-success-hover: var(--color-green);
+  --color-border-button-success-focus: var(--color-green);
+  --color-border-button-success-active: var(--color-green);
+  --color-border-button-alert: var(--color-red);
+  --color-border-button-alert-hover: var(--color-red-darker);
+  --color-border-button-alert-focus: var(--color-red-darker);
+  --color-border-button-alert-active: var(--color-red);
+  --color-border-button-overlay: var(--color-transparent);
+  --color-border-button-overlay-hover: var(--color-transparent);
+  --color-border-button-overlay-focus: var(--color-opac-w-6);
+  --color-border-button-overlay-active: var(--color-opac-w-9);
+  --color-border-button-overlay-bordered: var(--color-white);
+  --color-border-interactable-selected: var(--color-twitch-purple-10);
 }
