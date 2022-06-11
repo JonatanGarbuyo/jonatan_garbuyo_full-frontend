@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import Navbar from '/components/navbar'
+import Button from '/components/button'
 import test from '/public/images/test.png'
 import styles from '/styles/Home.module.css'
 
@@ -59,7 +60,7 @@ export default function Home() {
         <div className={styles.search__form}>
           <form>
             <input></input>
-            <button>Search</button>
+            <Button className={styles.search__form__button}>Search</Button>
           </form>
         </div>
 
@@ -76,10 +77,7 @@ export default function Home() {
                 <p className={styles.followers}>
                   Followers: {artist.followers}
                 </p>
-                <div className={styles.visible__tablet}>
-                  <p>Publicado: {artist.publishedDate}</p>
-                  <button>+ add album</button>
-                </div>
+                <Button className={styles.card__button}>+ add album</Button>
               </div>
             ))}
           </div>

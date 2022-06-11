@@ -15,6 +15,8 @@
   margin: 0;
   font-size: var(--font-size-1);
 }
+
+/* search form */
 .search__title {
   font-size: var(--font-size-6);
   font-weight: var(--font-weight-normal);
@@ -22,7 +24,6 @@
   margin: 3.4rem auto;
   text-align: center;
 }
-
 .search__form {
   position: relative;
 }
@@ -35,32 +36,25 @@
   width: 66rem;
   border-radius: 24px;
 }
-.search__form button {
-  font-size: var(--font-size-6);
-  font-weight: var(--font-weight-bold);
-  border: none;
+.search__form__button {
   position: absolute;
   right: 8px;
-  height: 46px;
   top: 8px;
-  width: 150px;
-  border-radius: 24px;
-  background-color: var(--color-brand-lemon-pie);
 }
 
+/* search results */
 .search__result {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-6);
   margin: 3rem auto;
   width: 90%;
-  /* padding: 0 12rem; */
 }
-
 .search__results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   justify-items: center;
 }
+
 .card {
   padding: 24px;
   display: flex;
@@ -98,19 +92,11 @@
   font-weight: var(--font-weight-bold);
   margin-top: 2.4rem;
 }
-.card button {
+.card__button {
   display: none;
-  font-size: var(--font-size-6);
-  font-weight: var(--font-weight-bold);
-  border: none;
-  right: 8px;
-  height: 46px;
-  top: 8px;
-  width: 150px;
-  border-radius: 24px;
-  background-color: var(--color-brand-lemon-pie);
 }
 
+/* pagination */
 .pagination {
   width: 100%;
   margin-top: 3rem;
@@ -128,9 +114,6 @@
   .search__results {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  .followers {
-    display: none;
   }
   .card button {
     margin-top: 2rem;
