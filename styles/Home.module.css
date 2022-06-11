@@ -40,6 +40,8 @@
   position: absolute;
   right: 8px;
   top: 8px;
+  height: 46px;
+  width: 150px;
 }
 
 /* search results */
@@ -53,47 +55,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   justify-items: center;
-}
-
-.card {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  width: 320px;
-  /* height: 401px; */
-  background-color: transparent;
-  border-radius: 24px;
-  overflow: hidden;
-}
-.card:hover {
-  background-color: var(--color-brand-lemon-pie);
-}
-.card:hover h2 {
-  color: black;
-}
-.card:hover p {
-  color: black;
-}
-.artwork__wrapper {
-  overflow: hidden;
-  border-radius: 12px;
-  position: relative;
-  height: 241px;
-}
-.card h2 {
-  line-height: 44px;
-  font-weight: var(--font-weight-bold);
-  font-size: 3.6rem;
-  margin: 0;
-  margin-top: 2.4rem;
-}
-.followers {
-  margin: 0;
-  font-weight: var(--font-weight-bold);
-  margin-top: 2.4rem;
-}
-.card__button {
-  display: none;
 }
 
 /* pagination */
@@ -114,10 +75,6 @@
   .search__results {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  .card button {
-    margin-top: 2rem;
-    display: inline-block;
   }
 }
 

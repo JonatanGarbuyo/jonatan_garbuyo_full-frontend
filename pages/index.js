@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
+import ArtistCard from '/components/artistCard'
 import Navbar from '/components/navbar'
 import Button from '/components/button'
 import test from '/public/images/test.png'
@@ -66,19 +67,9 @@ export default function Home() {
 
         <div className={styles.search__result}>
           <p>Mostrando 4 resultados de {artists.length}</p>
-
           <div className={styles.search__results}>
             {artists.map((artist) => (
-              <div key={artist.id} className={styles.card}>
-                <div className={styles.artwork__wrapper}>
-                  <Image src={artist.artwork} alt="art-work" layout="fill" />
-                </div>
-                <h2>{artist.name}</h2>
-                <p className={styles.followers}>
-                  Followers: {artist.followers}
-                </p>
-                <Button className={styles.card__button}>+ add album</Button>
-              </div>
+              <ArtistCard key={artist.id} artist={artist} />
             ))}
           </div>
 
