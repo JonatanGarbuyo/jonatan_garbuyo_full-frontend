@@ -16,17 +16,19 @@ export default function ArtistCard({ artist }) {
   }
 
   return (
-    <Link href={`/artist/${artist.id}`}>
-      <a className={styles.card}>
-        <div className={styles.artwork__wrapper}>
-          <Image src={artist.artwork} alt="art-work" layout="fill" />
-        </div>
-        <h2>{artist.name}</h2>
-        <p className={styles.followers}>Followers: {artist.followers}</p>
-        <Button className={styles.card__button} onClick={handleClick}>
-          Artist albums
-        </Button>
-      </a>
-    </Link>
+    <div className={styles.card}>
+      <Link href={`/artist/${artist.id}`}>
+        <a className={styles.card__link}>
+          <div className={styles.artwork__wrapper}>
+            <Image src={artist.artwork} alt="art-work" layout="fill" />
+          </div>
+          <h2>{artist.name}</h2>
+          <p className={styles.followers}>Followers: {artist.followers}</p>
+        </a>
+      </Link>
+      <Button className={styles.card__button} onClick={handleClick}>
+        Artist albums
+      </Button>
+    </div>
   )
 }

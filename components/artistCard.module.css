@@ -38,9 +38,22 @@
 .card__button {
   display: none;
   height: 46px;
+  z-index: 10;
 }
 
 @media (max-width: 992px) {
+  .card:hover {
+    background-color: unset;
+  }
+  .card:hover h2 {
+    color: white;
+  }
+  .card:hover p {
+    color: white;
+  }
+  .card__link {
+    pointer-events: none;
+  }
   .card__button {
     margin-top: 2rem;
     display: block;
