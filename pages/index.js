@@ -50,7 +50,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.search__title}>
           <h1>Busca tus</h1>
-          <h1 className={styles.lemon}>artistas</h1>
+          <h1 className={`lemon`}>artistas</h1>
           <p>
             Encuentra tus artistas favoritos gracias a nuestro buscador y guarda
             tus álbumes favoritos
@@ -88,7 +88,7 @@ export default function Home() {
             <span>&lt;</span>
             <span>10</span>
             <span>...</span>
-            <span className={styles.lemon}>12</span>
+            <span className={`lemon`}>12</span>
             <span>13</span>
             <span>14</span>
             <span>...</span>

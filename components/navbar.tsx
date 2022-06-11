@@ -18,7 +18,7 @@ export default function Navbar() {
       </div>
       <nav>
         <ul>
-          <li className={styles.lemon}>Buscar</li>
+          <li className={`lemon`}>Buscar</li>
           <li>Mis Albumes</li>
           <li>
             <div />
