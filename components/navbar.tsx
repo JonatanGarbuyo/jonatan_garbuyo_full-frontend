@@ -5,9 +5,9 @@ import logoSmall from '/public/images/logoSmall.svg'
 import light from '/public/icon/light.svg'
 import logout from '/public/icon/logout.svg'
 
-import styles from './header.module.css'
+import styles from './navbar.module.css'
 
-export default function Header() {
+export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className={`hidden-xs ${styles.logo__image__wrapper}`}>
