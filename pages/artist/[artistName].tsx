@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
-import AlbumCard from '/components/albumCard'
-import Navbar from '/components/navbar'
+import AlbumCard from '../../components/albumCard'
+import Navbar from '../../components/navbar'
 
 import test from '/public/images/test.png'
 import Puppets from '/public/images/Master_of_Puppets_cover.jpg'

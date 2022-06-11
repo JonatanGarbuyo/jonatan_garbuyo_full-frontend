@@ -1,5 +1,5 @@
-import AlbumCard from '/components/albumCard'
-import Navbar from '/components/navbar'
+import AlbumCard from '../components/albumCard'
+import Navbar from '../components/navbar'
 
 import Puppets from '/public/images/Master_of_Puppets_cover.jpg'
 

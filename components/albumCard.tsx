@@ -1,7 +1,8 @@
-import Button from '/components/button'
+import Image from 'next/image'
+
+import Button from './button'
 
 import styles from './albumCard.module.css'
-import Image from 'next/image'
 
 export default function AlbumCard({ album, onClick }) {
   return (
