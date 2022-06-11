@@ -6,8 +6,12 @@ import light from '/public/icon/light.svg'
 import logout from '/public/icon/logout.svg'
 
 import styles from './navbar.module.css'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export default function Navbar() {
+  const router = useRouter()
+
   return (
     <header className={styles.header}>
       <div className={`hidden-xs ${styles.logo__image__wrapper}`}>
@@ -18,8 +22,16 @@ export default function Navbar() {
       </div>
       <nav>
         <ul>
-          <li className={`lemon`}>Buscar</li>
-          <li>Mis Albumes</li>
+          <li className={router.asPath === '/' && `lemon`}>
+            <Link href="/">
+              <a>Buscar</a>
+            </Link>
+          </li>
+          <li className={router.asPath === '/albums' && `lemon`}>
+            <Link href="/albums">
+              <a>Mis Albumes</a>
+            </Link>
+          </li>
           <li>
             <div />
           </li>
