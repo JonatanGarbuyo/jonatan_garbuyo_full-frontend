@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.my__albums {
+  margin: 12rem auto;
+}
+.my__albums h1 {
+  margin: 0;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-bold);
+}
+.my__albums p {
+  max-width: 457px;
+}
+
+/* albums */
+.albums {
+  margin: 0 14rem;
+  font-size: var(--font-size-6);
+  font-weight: var(--font-weight-normal);
+  line-height: 32px;
+}
+.albums_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* media queries */
+@media (max-width: 992px) {
+  .albums {
+    margin: 0px 12rem;
+  }
+}
+
+@media (max-width: 688px) {
+  .albums {
+    margin: auto;
+  }
+}
