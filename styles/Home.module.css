@@ -42,6 +42,11 @@
   top: 8px;
   height: 46px;
   width: 150px;
+  cursor: pointer;
+}
+.search__form__button:hover {
+  opacity: 0.9;
+  background-color: var(--color-brand-muted-canary);
 }
 
 /* search results */
