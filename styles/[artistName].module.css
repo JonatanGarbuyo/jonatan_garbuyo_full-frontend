@@ -59,36 +59,6 @@
   gap: 2rem;
   justify-items: center;
 }
-.album__card {
-  margin: 1rem 0px 4rem 0px;
-  display: flex;
-  flex-direction: column;
-  max-width: 272px;
-}
-.album__card h1 {
-  margin: 2.4rem 0px 0px 0px;
-  font-size: var(--font-size-4);
-  font-weight: var(--font-weight-semibold);
-}
-.album__image__wrapper {
-  border-radius: 12px;
-  overflow: hidden;
-  align-self: center;
-  margin: 0;
-  position: relative;
-  width: 272px;
-  height: 241px;
-}
-.album__button__add {
-  width: 184px;
-  height: 44px;
-}
-.album__button__remove {
-  background-color: var(--color-brand-warning);
-  color: white;
-  width: 184px;
-  height: 44px;
-}
 
 /* media queries */
 @media (max-width: 992px) {
@@ -102,16 +72,8 @@
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-bold);
   }
-
   .albums {
     margin: 0px 12rem;
-  }
-
-  .album__button__add {
-    width: unset;
-  }
-  .album__button__remove {
-    width: unset;
   }
 }
 
@@ -128,7 +90,6 @@
   .artist__description {
     margin-top: 1rem;
   }
-
   .albums {
     margin: auto;
   }

@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
+import AlbumCard from '/components/albumCard'
 import Navbar from '/components/navbar'
-import Button from '/components/button'
 
 import test from '/public/images/test.png'
 import Puppets from '/public/images/Master_of_Puppets_cover.jpg'
@@ -75,28 +75,7 @@ export default function Artist({ artist }) {
           <p>Guarda tus álbumes favoritos de {artist.name}</p>
           <div className={styles.albums_container}>
             {albums.map((album) => (
-              <div key={album.id} className={styles.album__card}>
-                <figure className={styles.album__image__wrapper}>
-                  <Image src={album.artwork} alt={album.name} layout="fill" />
-                </figure>
-                <h1>{album.name}</h1>
-                <p>Publicado: {album.publishedDate}</p>
-                {album.followed ? (
-                  <Button
-                    className={styles.album__button__remove}
-                    onClick={handleClick}
-                  >
-                    - Remove album
-                  </Button>
-                ) : (
-                  <Button
-                    className={styles.album__button__add}
-                    onClick={handleClick}
-                  >
-                    + Add album
-                  </Button>
-                )}
-              </div>
+              <AlbumCard key={album.id} album={album} onClick={handleClick} />
             ))}
           </div>
         </section>
