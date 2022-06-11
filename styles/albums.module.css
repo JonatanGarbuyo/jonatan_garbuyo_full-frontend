@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  font-size: var(--font-size-6);
   flex-direction: column;
 }
 .my__albums {
@@ -36,6 +37,14 @@
 }
 
 @media (max-width: 688px) {
+  .my__albums {
+    margin: 5rem auto;
+    max-width: 329px;
+  }
+  .my__albums h1 {
+    margin: 0;
+    font-size: var(--font-size-3);
+  }
   .albums {
     margin: auto;
   }
