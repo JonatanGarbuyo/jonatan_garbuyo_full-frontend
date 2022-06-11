@@ -1,6 +1,7 @@
 .button {
+  text-align: center;
   font-size: var(--font-size-6);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   border: none;
   height: 46px;
   width: 150px;
