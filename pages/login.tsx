@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { signIn } from 'next-auth/react'
 
 import logo from '/public/images/logo.svg'
 import arrowR from '/public/icon/arrowR.svg'
@@ -9,7 +10,7 @@ import styles from '/styles/Login.module.css'
 export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault()
-    console.log('Login')
+    signIn('spotify', { callbackUrl: '/' })
   }
 
   return (

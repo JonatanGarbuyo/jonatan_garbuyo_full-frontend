@@ -104,6 +104,7 @@ a {
   --color-brand-muted-emerald: #00f593;
   --color-brand-muted-coral: #ff8280;
   --color-brand-muted-ocean: #1345aa;
+  --color-brand-accent-spotify: #2bde6a;
   --color-brand-accent-grape: #5c16c5;
   --color-brand-accent-dragonfruit: #ff38db;
   --color-brand-accent-carrot: #e69900;
@@ -190,6 +191,7 @@ a {
   --color-opac-w-14: hsla(0, 0%, 100%, 0.9);
   --color-opac-w-15: hsla(0, 0%, 100%, 0.95);
   --color-twitter: #1da1f2;
+  --color-spotify: #1db954;
   --color-facebook: #3b5998;
   --color-reddit: #ff4500;
   --color-snapchat: #fffc00;

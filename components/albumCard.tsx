@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import Button from './button'
+import noArtwork from '../public/images/noArtwork.png'
 
 import styles from './albumCard.module.css'
 
@@ -8,7 +9,11 @@ export default function AlbumCard({ album, onClick }) {
   return (
     <div className={styles.album__card}>
       <figure className={styles.album__image__wrapper}>
-        <Image src={album.artwork} alt={album.name} layout="fill" />
+        <Image
+          src={album.artwork?.url || noArtwork}
+          alt={album.name}
+          layout="fill"
+        />
       </figure>
       <h1>{album.name}</h1>
       <p>Publicado: {album.publishedDate}</p>

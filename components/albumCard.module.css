@@ -9,6 +9,9 @@
   margin: 2.4rem 0px 0px 0px;
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-semibold);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .album__image__wrapper {
   border-radius: 12px;
