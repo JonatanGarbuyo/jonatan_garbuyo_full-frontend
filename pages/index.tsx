@@ -25,7 +25,6 @@ export default function Home() {
       fetch(url)
         .then((response) => response.json())
         .then(({ artists }) => {
-          console.log(artists)
           setArtists(artists)
           setSearch('')
         })
