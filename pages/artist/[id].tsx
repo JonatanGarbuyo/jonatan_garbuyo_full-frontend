@@ -81,9 +81,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
+  // TODO: fix const type
   const {
     token: { accessToken },
-  } = session
+  }: any = session
   const {
     params: { id },
   } = context
