@@ -11,7 +11,6 @@ export default function ArtistCard({ artist }) {
 
   function handleClick(e) {
     e.preventDefault()
-    console.log(artist.name)
     router.push(`/artist/${artist.id}`)
   }
 
