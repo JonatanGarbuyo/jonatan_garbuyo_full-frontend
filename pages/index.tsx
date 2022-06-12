@@ -1,43 +1,55 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { getSession, useSession } from 'next-auth/react'
+import { GetServerSideProps } from 'next'
 
-import ArtistCard from '/components/artistCard'
-import Navbar from '/components/navbar'
-import Button from '/components/button'
+import ArtistCard from '../components/artistCard'
+import Navbar from '../components/navbar'
+import Button from '../components/button'
 import test from '/public/images/test.png'
+
 import styles from '/styles/Home.module.css'
 
+const artists = [
+  {
+    id: 12343221231,
+    name: 'Metallica',
+    followers: 234,
+    artwork: test,
+    publishedDate: '10-12-1998',
+  },
+  {
+    id: 12343221231,
+    name: 'Metallica',
+    followers: 234,
+    artwork: test,
+    publishedDate: '10-12-1998',
+  },
+  {
+    id: 12343221231,
+    name: 'Metallica',
+    followers: 234,
+    artwork: test,
+    publishedDate: '10-12-1998',
+  },
+  {
+    id: 12343221231,
+    name: 'Metallica',
+    followers: 234,
+    artwork: test,
+    publishedDate: '10-12-1998',
+  },
+]
+
 export default function Home() {
-  const artists = [
-    {
-      id: 12343221231,
-      name: 'Metallica',
-      followers: 234,
-      artwork: test,
-      publishedDate: '10-12-1998',
-    },
-    {
-      id: 12343221231,
-      name: 'Metallica',
-      followers: 234,
-      artwork: test,
-      publishedDate: '10-12-1998',
-    },
-    {
-      id: 12343221231,
-      name: 'Metallica',
-      followers: 234,
-      artwork: test,
-      publishedDate: '10-12-1998',
-    },
-    {
-      id: 12343221231,
-      name: 'Metallica',
-      followers: 234,
-      artwork: test,
-      publishedDate: '10-12-1998',
-    },
-  ]
+  const router = useRouter()
+  const { data: session } = useSession()
+  console.log('session: ', session?.user)
+
+  function handleClick(e) {
+    e.preventDefault()
+    console.log('button clicked')
+  }
 
   return (
     <div className={styles.container}>
@@ -61,7 +73,12 @@ export default function Home() {
         <div className={styles.search__form}>
           <form>
             <input></input>
-            <Button className={styles.search__form__button}>Search</Button>
+            <Button
+              className={styles.search__form__button}
+              onClick={handleClick}
+            >
+              Search
+            </Button>
           </form>
         </div>
 
@@ -88,4 +105,21 @@ export default function Home() {
       </main>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: { session },
+  }
 }
