@@ -1,42 +1,14 @@
+import { GetServerSideProps } from 'next'
+import { getSession } from 'next-auth/react'
+
+import { getMyAlbums } from '../service/albums'
+
 import AlbumCard from '../components/albumCard'
 import Navbar from '../components/navbar'
 
-import Puppets from '/public/images/Master_of_Puppets_cover.jpg'
-
 import styles from '/styles/albums.module.css'
 
-const albums = [
-  {
-    id: 1,
-    name: 'Master of Puppets',
-    publishedDate: '1986',
-    artwork: Puppets,
-    followed: true,
-  },
-  {
-    id: 2,
-    name: 'Master of Puppets',
-    publishedDate: '1986',
-    artwork: Puppets,
-    followed: false,
-  },
-  {
-    id: 3,
-    name: 'Master of Puppets',
-    publishedDate: '1986',
-    artwork: Puppets,
-    followed: false,
-  },
-  {
-    id: 4,
-    name: 'Master of Puppets',
-    publishedDate: '1986',
-    artwork: Puppets,
-    followed: true,
-  },
-]
-
-export default function Albums() {
+export default function Albums({ albums }) {
   function handleClick(e) {
     e.preventDefault()
     console.log('button clicked')
@@ -57,12 +29,50 @@ export default function Albums() {
 
         <section className={styles.albums}>
           <div className={styles.albums_container}>
-            {albums.map((album) => (
-              <AlbumCard key={album.id} album={album} onClick={handleClick} />
-            ))}
+            {albums.length
+              ? albums.map((album) => (
+                  <AlbumCard
+                    key={album.id}
+                    album={album}
+                    onClick={handleClick}
+                  />
+                ))
+              : null}
           </div>
         </section>
       </main>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    }
+  }
+
+  // TODO: fix const type
+  const {
+    token: { accessToken },
+  }: any = session
+
+  const response = await getMyAlbums(accessToken)
+  const data = await response.json()
+  const albums = data.items.map(({ album }) => ({
+    id: album.id,
+    name: album.name,
+    artwork: album.images[0],
+    publishedDate: album.release_date,
+    followed: true,
+  }))
+
+  return {
+    props: { session, albums },
+  }
 }
