@@ -46,7 +46,7 @@
 }
 .search__form__button:hover {
   opacity: 0.9;
-  background-color: var(--color-brand-muted-canary);
+  background-color: var(--color-brand-accent-spotify);
 }
 
 /* search results */
