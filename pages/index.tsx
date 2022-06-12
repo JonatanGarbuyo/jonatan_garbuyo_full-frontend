@@ -1,54 +1,34 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { getSession, useSession } from 'next-auth/react'
+import { getSession } from 'next-auth/react'
 import { GetServerSideProps } from 'next'
 
-import ArtistCard from '../components/artistCard'
+import SearchResults from '../components/searchResults'
 import Navbar from '../components/navbar'
 import Button from '../components/button'
-import test from '/public/images/test.png'
 
 import styles from '/styles/Home.module.css'
-
-const artists = [
-  {
-    id: 12343221231,
-    name: 'Metallica',
-    followers: 234,
-    artwork: test,
-    publishedDate: '10-12-1998',
-  },
-  {
-    id: 12343221231,
-    name: 'Metallica',
-    followers: 234,
-    artwork: test,
-    publishedDate: '10-12-1998',
-  },
-  {
-    id: 12343221231,
-    name: 'Metallica',
-    followers: 234,
-    artwork: test,
-    publishedDate: '10-12-1998',
-  },
-  {
-    id: 12343221231,
-    name: 'Metallica',
-    followers: 234,
-    artwork: test,
-    publishedDate: '10-12-1998',
-  },
-]
+import { useState } from 'react'
 
 export default function Home() {
-  const router = useRouter()
-  const { data: session } = useSession()
-  console.log('session: ', session?.user)
+  const [artists, setArtists] = useState([])
+  const [search, setSearch] = useState('')
 
-  function handleClick(e) {
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('button clicked')
+    const url = `/api/search/artist/${search}`
+    if (!search) setArtists([])
+    if (search)
+      fetch(url)
+        .then((response) => response.json())
+        .then(({ artists }) => {
+          console.log(artists)
+          setArtists(artists)
+          setSearch('')
+        })
   }
 
   return (
@@ -71,37 +51,12 @@ export default function Home() {
           </p>
         </div>
         <div className={styles.search__form}>
-          <form>
-            <input></input>
-            <Button
-              className={styles.search__form__button}
-              onClick={handleClick}
-            >
-              Search
-            </Button>
+          <form onSubmit={handleSubmit}>
+            <input type="text" value={search} onChange={handleChange} />
+            <Button className={styles.search__form__button}>Search</Button>
           </form>
         </div>
-
-        <div className={styles.search__result}>
-          <p>Mostrando 4 resultados de {artists.length}</p>
-          <div className={styles.search__results}>
-            {artists.map((artist) => (
-              <ArtistCard key={artist.id} artist={artist} />
-            ))}
-          </div>
-
-          <div className={styles.pagination}>
-            <span>&lt;</span>
-            <span>10</span>
-            <span>...</span>
-            <span className={`lemon`}>12</span>
-            <span>13</span>
-            <span>14</span>
-            <span>...</span>
-            <span>20</span>
-            <span>&gt;</span>
-          </div>
-        </div>
+        {artists.length ? <SearchResults artists={artists} /> : null}
       </main>
     </div>
   )
