@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { signOut } from 'next-auth/react'
 
 import logo from '/public/images/logo.svg'
 import logoSmall from '/public/images/logoSmall.svg'
@@ -36,8 +37,17 @@ export default function Navbar() {
             <div />
           </li>
           <li>
-            <span className={`hidden-xs`}>Cerrar sesión</span>
-            <span id="logout" className={`${styles.logout} visible-xs-block`}>
+            <span
+              className={`hidden-xs ${styles.logout}`}
+              onClick={() => signOut()}
+            >
+              Cerrar sesión
+            </span>
+            <span
+              id="logout"
+              className={`${styles.logout__icon} visible-xs-block`}
+              onClick={() => signOut()}
+            >
               <Image src={logout} alt="logout" layout="fill" />
             </span>
           </li>
