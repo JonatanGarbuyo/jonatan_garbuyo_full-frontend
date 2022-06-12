@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import Button from './button'
-
+import noArtwork from '../public/images/noArtwork.png'
 import styles from './artistCard.module.css'
 
 export default function ArtistCard({ artist }) {
@@ -11,7 +11,6 @@ export default function ArtistCard({ artist }) {
 
   function handleClick(e) {
     e.preventDefault()
-    console.log(artist.name)
     router.push(`/artist/${artist.id}`)
   }
 
@@ -20,7 +19,11 @@ export default function ArtistCard({ artist }) {
       <Link href={`/artist/${artist.id}`}>
         <a className={styles.card__link}>
           <div className={styles.artwork__wrapper}>
-            <Image src={artist.artwork} alt="art-work" layout="fill" />
+            <Image
+              src={artist.artwork?.url || noArtwork}
+              alt="art-work"
+              layout="fill"
+            />
           </div>
           <h2>{artist.name}</h2>
           <p className={styles.followers}>Followers: {artist.followers}</p>

@@ -31,6 +31,9 @@
   min-height: 24px;
 }
 .logout {
+  cursor: pointer;
+}
+.logout__icon {
   position: relative;
   height: 24px;
   width: 24px;

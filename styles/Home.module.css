@@ -49,37 +49,9 @@
   background-color: var(--color-brand-accent-spotify);
 }
 
-/* search results */
-.search__result {
-  font-weight: var(--font-weight-normal);
-  font-size: var(--font-size-6);
-  margin: 3rem auto;
-  width: 90%;
-}
-.search__results {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  justify-items: center;
-}
-
-/* pagination */
-.pagination {
-  width: 100%;
-  margin-top: 3rem;
-  display: flex;
-  gap: 2rem;
-}
-
 @media (max-width: 992px) {
   .search__form input {
     width: 100%;
-  }
-  .search__result {
-    padding: 0;
-  }
-  .search__results {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -96,16 +68,5 @@
     padding: 0 170px 0 24px;
     /* width: 36rem; */
     border-radius: 24px;
-  }
-
-  .search__result {
-    font-weight: var(--font-weight-normal);
-    font-size: var(--font-size-6);
-    margin: 3rem auto;
-    padding: 0;
-  }
-  .search__results {
-    display: grid;
-    grid-template-columns: 1fr;
   }
 }
