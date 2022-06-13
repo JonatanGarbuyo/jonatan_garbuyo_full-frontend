@@ -28,7 +28,6 @@ const handler = async (req, res) => {
     name: album.name,
     artwork: album.images[0],
     publishedDate: album.release_date,
-    followed: true,
   }))
 
   return res.status(200).json({ artistAlbums })
