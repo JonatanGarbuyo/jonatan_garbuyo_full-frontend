@@ -23,12 +23,12 @@ export default function Navbar() {
       </div>
       <nav>
         <ul>
-          <li className={router.asPath === '/' && `lemon`}>
+          <li className={router.asPath === '/' ? `lemon` : ''}>
             <Link href="/">
               <a>Buscar</a>
             </Link>
           </li>
-          <li className={router.asPath === '/albums' && `lemon`}>
+          <li className={router.asPath === '/albums' ? `lemon` : ''}>
             <Link href="/albums">
               <a>Mis Albumes</a>
             </Link>
