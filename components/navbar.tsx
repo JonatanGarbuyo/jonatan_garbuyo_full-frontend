@@ -15,12 +15,16 @@ export default function Navbar() {
 
   return (
     <header className={styles.header}>
-      <div className={`hidden-xs ${styles.logo__image__wrapper}`}>
-        <Image src={logo} alt="logo" layout={'fill'} />
-      </div>
-      <div className={`${styles.logo__image__wrapper} hidden-sm`}>
-        <Image src={logoSmall} alt="logo" layout={'fill'} />
-      </div>
+      <Link href="/">
+        <a>
+          <div className={`hidden-xs ${styles.logo__image__wrapper}`}>
+            <Image src={logo} alt="logo" layout={'fill'} />
+          </div>
+          <div className={`${styles.logo__image__wrapper} hidden-sm`}>
+            <Image src={logoSmall} alt="logo" layout={'fill'} />
+          </div>
+        </a>
+      </Link>
       <nav>
         <ul>
           <li className={router.asPath === '/' ? `lemon` : ''}>
