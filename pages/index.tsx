@@ -50,8 +50,13 @@ export default function Home() {
           </p>
         </div>
         <div className={styles.search__form}>
-          <form onSubmit={handleSubmit}>
-            <input type="text" value={search} onChange={handleChange} />
+          <form onSubmit={handleSubmit} autoComplete="on">
+            <input
+              type="text"
+              value={search}
+              onChange={handleChange}
+              autoComplete="on"
+            />
             <Button className={styles.search__form__button}>Search</Button>
           </form>
         </div>
