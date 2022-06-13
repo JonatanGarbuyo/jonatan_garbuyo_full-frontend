@@ -31,11 +31,7 @@ export default function Albums({ albums }) {
           <div className={styles.albums_container}>
             {albums.length
               ? albums.map((album) => (
-                  <AlbumCard
-                    key={album.id}
-                    album={album}
-                    onClick={handleClick}
-                  />
+                  <AlbumCard key={album.id} album={album} />
                 ))
               : null}
           </div>

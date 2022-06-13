@@ -24,11 +24,6 @@ export default function Artist({ artist }) {
       })
   }, [url])
 
-  function handleClick(e) {
-    e.preventDefault()
-    console.log('button clicked')
-  }
-
   return (
     <div>
       <Navbar />
@@ -61,7 +56,7 @@ export default function Artist({ artist }) {
           <p>Guarda tus álbumes favoritos de {artist.name}</p>
           <div className={styles.albums_container}>
             {albums.map((album) => (
-              <AlbumCard key={album.id} album={album} onClick={handleClick} />
+              <AlbumCard key={album.id} album={album} />
             ))}
           </div>
         </section>
