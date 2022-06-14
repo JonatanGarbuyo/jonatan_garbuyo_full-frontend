@@ -34,6 +34,7 @@ export default function Artist({ artist }) {
               src={artist.artwork?.url || noArtwork}
               alt={artist.name}
               layout="fill"
+              priority={true}
             />
           </figure>
 

@@ -6,7 +6,7 @@ const ARTIST_ALBUMS_ENDPOINT = 'https://api.spotify.com/v1/artists/'
 const getArtistAlbums = async (refresh_token, id) => {
   const { access_token } = await getAccessToken(refresh_token)
 
-  return fetch(`${ARTIST_ALBUMS_ENDPOINT}${id}/albums?limit=4`, {
+  return fetch(`${ARTIST_ALBUMS_ENDPOINT}${id}/albums?`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },

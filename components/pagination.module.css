@@ -12,6 +12,7 @@
 
 .pagination li {
   position: relative;
+  height: 16px;
 }
 
 .pagination a {
