@@ -4,10 +4,10 @@ import { arrayRange } from '../utils/helperFunctions'
 
 import styles from './pagination.module.css'
 
-export default function Pagination({ currentPage, itemsCount, onPageChange }) {
+export default function Pagination({ currentPage, pagesCount, onPageChange }) {
   const navigationProps = {
     currentPage,
-    itemsCount,
+    pagesCount,
     onPageChange,
   }
 
@@ -15,8 +15,8 @@ export default function Pagination({ currentPage, itemsCount, onPageChange }) {
   if (currentPage <= 1) {
     pages = arrayRange(1, 3)
   }
-  if (currentPage >= itemsCount) {
-    pages = arrayRange(itemsCount - 2, itemsCount)
+  if (currentPage >= pagesCount) {
+    pages = arrayRange(pagesCount - 2, pagesCount)
   }
 
   return (

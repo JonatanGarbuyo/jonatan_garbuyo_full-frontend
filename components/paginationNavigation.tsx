@@ -3,7 +3,7 @@ import next from '../public/icon/next.svg'
 import prev from '../public/icon/prev.svg'
 
 export default function PaginationNavigation({ children, navigationProps }) {
-  const { currentPage, itemsCount, onPageChange } = navigationProps
+  const { currentPage, pagesCount, onPageChange } = navigationProps
 
   return (
     <>
@@ -24,14 +24,14 @@ export default function PaginationNavigation({ children, navigationProps }) {
         // children component
         children
       }
-      {currentPage < itemsCount - 2 ? <li>...</li> : null}
-      {currentPage < itemsCount - 1 ? (
+      {currentPage < pagesCount - 2 ? <li>...</li> : null}
+      {currentPage < pagesCount - 1 ? (
         <li>
-          <a onClick={() => onPageChange(itemsCount)}>{itemsCount}</a>
+          <a onClick={() => onPageChange(pagesCount)}>{pagesCount}</a>
         </li>
       ) : null}
       <li>
-        <a onClick={() => onPageChange(Math.min(itemsCount, currentPage + 1))}>
+        <a onClick={() => onPageChange(Math.min(pagesCount, currentPage + 1))}>
           <Image src={next} alt="&gt;" layout="fill" />
         </a>
       </li>
