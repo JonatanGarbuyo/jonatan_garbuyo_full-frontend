@@ -7,7 +7,8 @@ const searchArtist = async (refresh_token, query) => {
   const [[key, value]] = Object.entries(query)
   const { access_token } = await getAccessToken(refresh_token)
 
-  return fetch(`${SEARCH_ENDPOINT}q=${key}:${value}&type=${key}&limit=4`, {
+  //max limit 50
+  return fetch(`${SEARCH_ENDPOINT}q=${key}:${value}&type=${key}&limit=48`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
@@ -20,14 +21,23 @@ const handler = async (req, res) => {
     token: { accessToken },
   } = await getSession({ req })
 
-  const response = await searchArtist(accessToken, query)
-  const data = await response.json()
-  const artists = data.artists.items.map((artist) => ({
-    id: artist.id,
-    name: artist.name,
-    artwork: artist.images[0],
-    followers: artist.followers.total,
-  }))
+  let artists
+  try {
+    const response = await searchArtist(accessToken, query)
+    const data = await response.json()
+    if (data.error) {
+      const { status, message } = data.error
+      return res.status(status).json({ message })
+    }
+    artists = data.artists.items.map((artist) => ({
+      id: artist.id,
+      name: artist.name,
+      artwork: artist.images[0],
+      followers: artist.followers.total,
+    }))
+  } catch (error) {
+    console.log(error)
+  }
 
   return res.status(200).json({ artists })
 }

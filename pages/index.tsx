@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps } from 'next'
-
+import { searchArtists } from '../service/search'
 import SearchResults from '../components/searchResults'
 import Navbar from '../components/navbar'
 import Button from '../components/button'
@@ -11,23 +11,19 @@ import { useState } from 'react'
 
 export default function Home() {
   const [artists, setArtists] = useState([])
-  const [search, setSearch] = useState('')
+  const [keywords, setKeywords] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
-    setSearch(e.target.value)
+    setKeywords(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const url = `/api/search/artist/${search}`
-    if (!search) setArtists([])
-    if (search)
-      fetch(url)
-        .then((response) => response.json())
-        .then(({ artists }) => {
-          setArtists(artists)
-          setSearch('')
-        })
+    if (!keywords) return null //TODO  validate imput
+    const artistsArray = await searchArtists(keywords)
+    setArtists(artistsArray)
+    setKeywords('')
   }
 
   return (
@@ -53,7 +49,7 @@ export default function Home() {
           <form onSubmit={handleSubmit} autoComplete="on">
             <input
               type="text"
-              value={search}
+              value={keywords}
               onChange={handleChange}
               autoComplete="on"
             />
