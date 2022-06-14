@@ -7,9 +7,9 @@ export default function PaginationNavigation({ children, navigationProps }) {
 
   return (
     <>
-      {currentPage > 1 ? (
+      {currentPage >= 1 ? (
         <li>
-          <a onClick={() => onPageChange(currentPage - 1)}>
+          <a onClick={() => onPageChange(Math.max(1, currentPage - 1))}>
             <Image src={prev} alt="&lt;" layout="fill" />
           </a>
         </li>
@@ -31,7 +31,7 @@ export default function PaginationNavigation({ children, navigationProps }) {
         </li>
       ) : null}
       <li>
-        <a onClick={() => onPageChange(currentPage + 1)}>
+        <a onClick={() => onPageChange(Math.min(itemsCount, currentPage + 1))}>
           <Image src={next} alt="&gt;" layout="fill" />
         </a>
       </li>
