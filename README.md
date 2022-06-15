@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ejercicio técnico - FS (front) -
 
-## Getting Started
+Este ejercicio consiste en la realización de un caso práctico inventado donde principalmente habrá que llevar a cabo  
+puntos de trabajo de maquetación e integración frontend, simulando lo que podrían ser tareas del día a día en el equipo de desarrollo.
 
-First, run the development server:
+## Recursos
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Open API a integrar [Spotify](https://developer.spotify.com/documentation/web-api/)   
+Diseño de las pantallas a maquetar   
+   
+<img src="https://user-images.githubusercontent.com/58077441/173714731-b348756b-cdc4-4aaa-92bc-9dfb469a75d7.png"  width="300" >
+<a href="https://user-images.githubusercontent.com/58077441/173714747-90b5f784-50a4-4b77-abb3-55d778e7d078.png">
+<img src="https://user-images.githubusercontent.com/58077441/173714747-90b5f784-50a4-4b77-abb3-55d778e7d078.png"  width="300" >
+   </a><a href="https://user-images.githubusercontent.com/58077441/173714750-c0d51552-fc8c-4b5e-9665-e898b8ef2f94.png">
+<img src="https://user-images.githubusercontent.com/58077441/173714750-c0d51552-fc8c-4b5e-9665-e898b8ef2f94.png"  width="300" >
+   </a><a href="https://user-images.githubusercontent.com/58077441/173714757-d8cd0632-ab35-4cc6-a8f8-ccb2848da6f4.png">
+<img src="https://user-images.githubusercontent.com/58077441/173714757-d8cd0632-ab35-4cc6-a8f8-ccb2848da6f4.png"  width="300" >
+</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Puntos de trabajo
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Para realizar una prueba exitosa se debe realizar la maquetación, responsive e integración de las cuatro pantallas
+compartidas en el diseño de Figma:
+Login, Buscador de artistas, Artista detalle y Mis álbumes guardados
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Especificaciones
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- El proyecto debe hacerse de 0.
+- Se debe realizar el ejercicio haciendo uso de React o Vue
+- Se puede hacer uso de librerías y/o frameworks de CSS y JS para optimizar tiempos
 
-## Learn More
+## Entrega
 
-To learn more about Next.js, take a look at the following resources:
+Hay un límite de 3 días para entregar el ejercicio una vez recibido el enunciado
+Crea un repositorio privado que tenga por nombre el siguiente formato: “nombre_apellido_posicion”
+(ejemplo: “daniel_martin_full-frontend”)
+Debes usar ese mismo repositorio para realizar la prueba y hacer entrega del código.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Se valorará
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Que se contemplen casos borde (i.e: modo offline mode, que una respuesta no traiga contenido, que se de un error 404, etc)
+- Buenas prácticas a nivel Git Flow y correcta redacción del Readme
+- Hacer uso de TypeScript en lugar de JavaScript
+- Buena organización y estructura de folders, código y componentes
+- Implementar unit testing, casos de test en el código y variables de entorno
+- No hacer uso de librerías de CSS para la maquetación (en cualquier caso, su uso está totalmente permitido)
+- Que puedas priorizar y manejar bien el tiempo de trabajo como para hacer una buena entrega contemplando el alcance
+  total de la prueba desde un comienzo
+- Desplegar el resultado del ejercicio en una URL final mediante vercel o netlify.
