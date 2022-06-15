@@ -8,12 +8,14 @@ puntos de trabajo de maquetación e integración frontend, simulando lo que podr
 Open API a integrar [Spotify](https://developer.spotify.com/documentation/web-api/)   
 Diseño de las pantallas a maquetar   
    
-![login](https://user-images.githubusercontent.com/58077441/173714731-b348756b-cdc4-4aaa-92bc-9dfb469a75d7.png)
-![buscador](https://user-images.githubusercontent.com/58077441/173714747-90b5f784-50a4-4b77-abb3-55d778e7d078.png)
-![detalle](https://user-images.githubusercontent.com/58077441/173714750-c0d51552-fc8c-4b5e-9665-e898b8ef2f94.png)
-![misAlbumes](https://user-images.githubusercontent.com/58077441/173714757-d8cd0632-ab35-4cc6-a8f8-ccb2848da6f4.png)
-
-
+<img src="https://user-images.githubusercontent.com/58077441/173714731-b348756b-cdc4-4aaa-92bc-9dfb469a75d7.png"  width="300" >
+<a href="https://user-images.githubusercontent.com/58077441/173714747-90b5f784-50a4-4b77-abb3-55d778e7d078.png">
+<img src="https://user-images.githubusercontent.com/58077441/173714747-90b5f784-50a4-4b77-abb3-55d778e7d078.png"  width="300" >
+   </a><a href="https://user-images.githubusercontent.com/58077441/173714750-c0d51552-fc8c-4b5e-9665-e898b8ef2f94.png">
+<img src="https://user-images.githubusercontent.com/58077441/173714750-c0d51552-fc8c-4b5e-9665-e898b8ef2f94.png"  width="300" >
+   </a><a href="https://user-images.githubusercontent.com/58077441/173714757-d8cd0632-ab35-4cc6-a8f8-ccb2848da6f4.png">
+<img src="https://user-images.githubusercontent.com/58077441/173714757-d8cd0632-ab35-4cc6-a8f8-ccb2848da6f4.png"  width="300" >
+</a>
 
 ## Puntos de trabajo
 
