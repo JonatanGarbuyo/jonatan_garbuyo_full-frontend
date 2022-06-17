@@ -14,11 +14,11 @@ export default function Home() {
   const [keywords, setKeywords] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setKeywords(e.target.value)
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
     if (!keywords) return null //TODO  validate imput
     const artistsArray = await searchArtists(keywords)
