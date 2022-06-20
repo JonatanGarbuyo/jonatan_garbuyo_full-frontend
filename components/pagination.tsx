@@ -3,13 +3,10 @@ import PaginationNavigation from './paginationNavigation'
 import { arrayRange } from '../utils/helperFunctions'
 
 import styles from './pagination.module.css'
+import { NavigationProps } from 'types'
 
-export default function Pagination({ currentPage, pagesCount, onPageChange }) {
-  const navigationProps = {
-    currentPage,
-    pagesCount,
-    onPageChange,
-  }
+export default function Pagination(navigationProps: NavigationProps) {
+  const { currentPage, pagesCount, onPageChange } = navigationProps
 
   let pages = [currentPage - 1, currentPage, currentPage + 1]
   if (currentPage <= 1) {

@@ -1,18 +1,21 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps } from 'next'
+
 import { searchArtists } from '../service/search'
-import SearchResults from '../components/searchResults'
-import Navbar from '../components/navbar'
+
+import { Artist } from '../types'
 import Button from '../components/button'
+import Navbar from '../components/navbar'
+import SearchResults from '../components/searchResults'
 
 import styles from '/styles/Home.module.css'
-import { useState } from 'react'
 
 export default function Home() {
-  const [artists, setArtists] = useState([])
+  const [artists, setArtists] = useState<Artist[]>([])
   const [keywords, setKeywords] = useState('')
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setKeywords(e.target.value)
@@ -22,8 +25,11 @@ export default function Home() {
     e.preventDefault()
     if (!keywords) return null //TODO  validate imput
     const artistsArray = await searchArtists(keywords)
-    setArtists(artistsArray)
-    setKeywords('')
+
+    if (artistsArray) {
+      setArtists(artistsArray)
+      setKeywords('')
+    }
   }
 
   return (
@@ -56,7 +62,7 @@ export default function Home() {
             <Button className={styles.search__form__button}>Search</Button>
           </form>
         </div>
-        {artists.length ? <SearchResults artists={artists} /> : null}
+        {artists?.length ? <SearchResults artists={artists} /> : null}
       </main>
     </div>
   )
@@ -64,7 +70,6 @@ export default function Home() {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context)
-
   if (!session) {
     return {
       redirect: {

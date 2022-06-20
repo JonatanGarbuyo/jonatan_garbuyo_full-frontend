@@ -1,8 +1,17 @@
 import Image from 'next/image'
+import { NavigationProps } from 'types'
 import next from '../public/icon/next.svg'
 import prev from '../public/icon/prev.svg'
 
-export default function PaginationNavigation({ children, navigationProps }) {
+interface Props {
+  children: JSX.Element | JSX.Element[]
+  navigationProps: NavigationProps
+}
+
+export default function PaginationNavigation({
+  children,
+  navigationProps,
+}: Props) {
   const { currentPage, pagesCount, onPageChange } = navigationProps
 
   return (

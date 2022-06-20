@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
+import { Artist } from 'types'
 import { paginate } from '../utils/paginate'
 
 import ArtistCard from './artistCard'
@@ -7,13 +8,17 @@ import Pagination from './pagination'
 
 import styles from './searchResults.module.css'
 
-export default function SearchResults({ artists }) {
+interface Props {
+  artists: Artist[]
+}
+
+export default function SearchResults({ artists }: Props) {
   const pageSize = 4
   const [currentPage, setCurrentPage] = useState(1)
 
-  const pageContent = paginate(artists, currentPage, pageSize)
+  const pageContent: Artist[] = paginate(artists, currentPage, pageSize)
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     setCurrentPage(page)
   }
 
@@ -28,7 +33,7 @@ export default function SearchResults({ artists }) {
 
       <Pagination
         currentPage={currentPage}
-        pagesCount={artists.length / pageSize}
+        pagesCount={Math.round(artists.length / pageSize)}
         onPageChange={handlePageChange}
       />
     </div>
