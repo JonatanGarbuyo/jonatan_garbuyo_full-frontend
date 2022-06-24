@@ -7,7 +7,7 @@ export type SearchArtistResponseFromApi = {
       genres: string[]
       href: string
       id: string
-      images: string[]
+      images: { url: string }[]
       name: string
       popularity: number
       type: string
