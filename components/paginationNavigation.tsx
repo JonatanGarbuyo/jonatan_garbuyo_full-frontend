@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { NavigationProps } from 'types'
+import { NavigationProps } from '../types'
 import next from '../public/icon/next.svg'
 import prev from '../public/icon/prev.svg'
 

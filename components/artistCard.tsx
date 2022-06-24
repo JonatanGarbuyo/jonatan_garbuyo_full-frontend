@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Button from './button'
 import noArtwork from '../public/images/noArtwork.png'
 import styles from './artistCard.module.css'
-import { Artist } from 'types'
+import { Artist } from 'types/artist'
 
 interface Props {
   artist: Artist

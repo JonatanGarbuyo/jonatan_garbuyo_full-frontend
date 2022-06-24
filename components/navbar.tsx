@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Link from 'next/link'
 import { signOut } from 'next-auth/react'
 
 import logo from '/public/images/logo.svg'
@@ -7,8 +9,6 @@ import light from '/public/icon/light.svg'
 import logout from '/public/icon/logout.svg'
 
 import styles from './navbar.module.css'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 export default function Navbar() {
   const router = useRouter()

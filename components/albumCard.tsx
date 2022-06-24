@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-import { Album } from 'types'
+import { Album } from 'types/albums'
 import Button from './button'
 import noArtwork from '../public/images/noArtwork.png'
 

@@ -5,7 +5,7 @@ import { GetServerSideProps } from 'next'
 
 import { searchArtists } from '../service/search'
 
-import { Artist } from '../types'
+import { Artist } from '../types/artist'
 import Button from '../components/button'
 import Navbar from '../components/navbar'
 import SearchResults from '../components/searchResults'

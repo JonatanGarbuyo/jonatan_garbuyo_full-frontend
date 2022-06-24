@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Artist } from 'types'
+import { Artist } from 'types/artist'
 import { paginate } from '../utils/paginate'
 
 import ArtistCard from './artistCard'

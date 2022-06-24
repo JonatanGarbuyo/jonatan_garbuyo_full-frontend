@@ -1,4 +1,4 @@
-import { Artist } from 'types'
+import { Artist } from 'types/artist'
 
 interface Response {
   artists: Artist[]

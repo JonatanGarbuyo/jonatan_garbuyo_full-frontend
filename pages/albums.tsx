@@ -7,7 +7,7 @@ import AlbumCard from '../components/albumCard'
 import Navbar from '../components/navbar'
 
 import styles from '/styles/albums.module.css'
-import { Album } from 'types'
+import { Album } from 'types/albums'
 import { getToken } from 'next-auth/jwt'
 
 interface Props {
