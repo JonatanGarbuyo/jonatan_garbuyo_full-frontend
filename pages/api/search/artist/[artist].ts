@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getToken } from 'next-auth/jwt'
+import { Artist } from 'types/artist'
 import { SearchArtistResponseFromApi } from 'types/search'
 
 const SEARCH_ENDPOINT = 'https://api.spotify.com/v1/search?'
@@ -21,8 +22,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  let artistsArray
-
   try {
     const { query } = req
     const [[key, value]] = Object.entries(query)
@@ -30,18 +29,17 @@ export default async function handler(
     const access_token = jwt?.accessToken || ''
 
     const response = await searchArtist(access_token, key, value)
-    const { artists }: SearchArtistResponseFromApi = await response.json()
+    const data: SearchArtistResponseFromApi = await response.json()
 
-    artistsArray = artists.items.map((artist) => ({
+    const artists: Artist[] = data.artists.items.map((artist) => ({
       id: artist.id,
       name: artist.name,
       artwork: artist.images[0],
       followers: artist.followers.total,
     }))
+    return res.status(200).json({ artists })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error })
   }
-
-  return res.status(200).json({ artists: artistsArray })
 }

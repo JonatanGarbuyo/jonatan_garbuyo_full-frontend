@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react'
+import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import { getSession } from 'next-auth/react'
-import { GetServerSideProps } from 'next'
-import { getArtist } from '../../service/artist'
+import { getToken } from 'next-auth/jwt'
 
 import AlbumCard from '../../components/albumCard'
 import Navbar from '../../components/navbar'
-
+import { getArtist } from '../../service/artist'
 import noArtwork from '../../public/images/noArtwork.png'
 import certIcon from '/public/icon/certIcon.svg'
 
+import { Artist } from 'types/artist'
+import { Album } from 'types/albums'
+
 import styles from '/styles/[artistName].module.css'
 
-export default function Artist({ artist }) {
-  const [albums, setAlbums] = useState([])
+interface Props {
+  artist: Artist
+}
+
+export default function ArtistPage({ artist }: Props) {
+  const [albums, setAlbums] = useState<Album[]>([])
   const url = `/api/artist/${artist.id}/albums`
 
   useEffect(() => {
@@ -56,9 +63,11 @@ export default function Artist({ artist }) {
         <section className={styles.albums}>
           <p>Guarda tus álbumes favoritos de {artist.name}</p>
           <div className={styles.albums_container}>
-            {albums.map((album) => (
-              <AlbumCard key={album.id} album={album} />
-            ))}
+            {albums.length
+              ? albums.map((album) => (
+                  <AlbumCard key={album.id} album={album} />
+                ))
+              : null}
           </div>
         </section>
       </main>
@@ -67,6 +76,9 @@ export default function Artist({ artist }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { req } = context
+  const id = context.params?.id
+
   const session = await getSession(context)
   if (!session) {
     return {
@@ -77,22 +89,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  // TODO: fix const type
-  const {
-    token: { accessToken },
-  }: any = session
-  const {
-    params: { id },
-  } = context
-  const response = await getArtist(accessToken, id)
-  const data = await response.json()
-  const artist = {
-    id: data.id,
-    name: data.name,
-    artwork: data.images[0],
-    followers: data.followers.total,
-  }
-
+  const jwt = await getToken({ req })
+  const access_token = jwt?.accessToken || ''
+  const artist = await getArtist(access_token, id as string)
   return {
     props: {
       session,

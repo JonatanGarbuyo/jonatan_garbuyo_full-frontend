@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getToken } from 'next-auth/jwt'
-import { AlbumsResponseFromApi } from 'types/albums'
-import { Album } from 'types'
+import { Album, AlbumsResponseFromApi } from 'types/albums'
 
 const ARTIST_ALBUMS_ENDPOINT = 'https://api.spotify.com/v1/artists/'
 
@@ -20,8 +19,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  let artistAlbums: Album[]
-
   try {
     const { id } = req.query
     const jwt = await getToken({ req })
@@ -31,16 +28,16 @@ export default async function handler(
       access_token,
       id,
     )
-
-    artistAlbums = items.map(({ album }) => ({
-      id: album.id,
+    const albums: Album[] = items.map((album) => ({
+      id: album.id || 'nada',
       name: album.name,
       artwork: album.images[0],
       publishedDate: album.release_date,
     }))
+
+    return res.status(200).json({ artistAlbums: albums })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error })
   }
-  return res.status(200).json({ albums: artistAlbums })
 }

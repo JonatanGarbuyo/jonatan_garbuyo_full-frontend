@@ -12,7 +12,7 @@ export const getMyAlbums = async (access_token: string) => {
     })
     const { items }: AlbumsResponseFromApi = await response.json()
 
-    return items.map(({ album }) => ({
+    return items.map((album) => ({
       id: album.id,
       name: album.name,
       artwork: album.images[0],
