@@ -1,4 +1,4 @@
-import { AlbumsResponseFromApi } from 'types/albums'
+import { MyAlbumsResponseFromApi } from 'types/albums'
 
 const MY_ALBUMS_ENDPOINT = 'https://api.spotify.com/v1/me/albums'
 const CONTAINS_ENDPOINT = 'https://api.spotify.com/v1/me/albums/contains'
@@ -10,9 +10,9 @@ export const getMyAlbums = async (access_token: string) => {
         Authorization: `Bearer ${access_token}`,
       },
     })
-    const { items }: AlbumsResponseFromApi = await response.json()
-
-    return items.map((album) => ({
+    const { items }: MyAlbumsResponseFromApi = await response.json()
+    console.log('API_ALBUMS:', items)
+    return items.map(({ album }) => ({
       id: album.id,
       name: album.name,
       artwork: album.images[0],
