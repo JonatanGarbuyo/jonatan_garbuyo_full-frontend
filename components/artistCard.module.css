@@ -29,6 +29,9 @@
   font-size: 3.6rem;
   margin: 0;
   margin-top: 2.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .followers {
   margin: 0;

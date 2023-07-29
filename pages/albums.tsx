@@ -7,13 +7,14 @@ import AlbumCard from '../components/albumCard'
 import Navbar from '../components/navbar'
 
 import styles from '/styles/albums.module.css'
+import { Album } from 'types/albums'
+import { getToken } from 'next-auth/jwt'
 
-export default function Albums({ albums }) {
-  function handleClick(e) {
-    e.preventDefault()
-    console.log('button clicked')
-  }
+interface Props {
+  albums: Album[]
+}
 
+export default function Albums({ albums }: Props) {
   return (
     <div>
       <Navbar />
@@ -42,6 +43,7 @@ export default function Albums({ albums }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { req } = context
   const session = await getSession(context)
 
   if (!session) {
@@ -53,20 +55,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
-  // TODO: fix const type
-  const {
-    token: { accessToken },
-  }: any = session
-
-  const response = await getMyAlbums(accessToken)
-  const data = await response.json()
-  const albums = data.items.map(({ album }) => ({
-    id: album.id,
-    name: album.name,
-    artwork: album.images[0],
-    publishedDate: album.release_date,
-    followed: true,
-  }))
+  const jwt = await getToken({ req })
+  const access_token = jwt?.accessToken || ''
+  const albums = await getMyAlbums(access_token)
 
   return {
     props: { session, albums },

@@ -1,0 +1,21 @@
+/* pagination */
+.pagination {
+  width: 100%;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: var(--font-size-6);
+}
+.pagination ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.pagination li {
+  position: relative;
+  height: 16px;
+}
+
+.pagination a {
+  cursor: pointer;
+  padding: 1rem;
+}

@@ -8,7 +8,7 @@ import arrow from '/public/images/arrow.svg'
 import styles from '/styles/Login.module.css'
 
 export default function Login() {
-  const handleLogin = (event) => {
+  const handleLogin: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
     event.preventDefault()
     signIn('spotify', { callbackUrl: '/' })
   }

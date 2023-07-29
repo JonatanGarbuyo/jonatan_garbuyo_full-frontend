@@ -30,6 +30,12 @@ a {
   color: var(--color-brand-lemon-pie);
 }
 
+button:active {
+  opacity: 0.9;
+  box-shadow: 0 1px var(--color-brand-accent-pebble);
+  transform: translateY(1px);
+}
+
 /* Extra small devices Phones (<768px) (Class names :  */
 @media (max-width: 767px) {
   .visible-xs-block {

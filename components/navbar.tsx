@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Link from 'next/link'
 import { signOut } from 'next-auth/react'
 
 import logo from '/public/images/logo.svg'
@@ -7,20 +9,22 @@ import light from '/public/icon/light.svg'
 import logout from '/public/icon/logout.svg'
 
 import styles from './navbar.module.css'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 export default function Navbar() {
   const router = useRouter()
 
   return (
     <header className={styles.header}>
-      <div className={`hidden-xs ${styles.logo__image__wrapper}`}>
-        <Image src={logo} alt="logo" layout={'fill'} />
-      </div>
-      <div className={`${styles.logo__image__wrapper} hidden-sm`}>
-        <Image src={logoSmall} alt="logo" layout={'fill'} />
-      </div>
+      <Link href="/">
+        <a>
+          <div className={`hidden-xs ${styles.logo__image__wrapper}`}>
+            <Image src={logo} alt="logo" layout={'fill'} />
+          </div>
+          <div className={`${styles.logo__image__wrapper} hidden-sm`}>
+            <Image src={logoSmall} alt="logo" layout={'fill'} />
+          </div>
+        </a>
+      </Link>
       <nav>
         <ul>
           <li className={router.asPath === '/' ? `lemon` : ''}>

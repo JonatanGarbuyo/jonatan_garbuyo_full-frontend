@@ -5,12 +5,16 @@ import { useRouter } from 'next/router'
 import Button from './button'
 import noArtwork from '../public/images/noArtwork.png'
 import styles from './artistCard.module.css'
+import { Artist } from 'types/artist'
 
-export default function ArtistCard({ artist }) {
+interface Props {
+  artist: Artist
+}
+
+export default function ArtistCard({ artist }: Props) {
   const router = useRouter()
 
-  function handleClick(e) {
-    e.preventDefault()
+  function handleClick() {
     router.push(`/artist/${artist.id}`)
   }
 

@@ -1,33 +1,35 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
 import { GetServerSideProps } from 'next'
 
-import SearchResults from '../components/searchResults'
-import Navbar from '../components/navbar'
+import { searchArtists } from '../service/search'
+
+import { Artist } from '../types/artist'
 import Button from '../components/button'
+import Navbar from '../components/navbar'
+import SearchResults from '../components/searchResults'
 
 import styles from '/styles/Home.module.css'
-import { useState } from 'react'
 
 export default function Home() {
-  const [artists, setArtists] = useState([])
-  const [search, setSearch] = useState('')
+  const [artists, setArtists] = useState<Artist[]>([])
+  const [keywords, setKeywords] = useState('')
+  // const [loading, setLoading] = useState(false)
 
-  const handleChange = (e) => {
-    setSearch(e.target.value)
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setKeywords(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
-    const url = `/api/search/artist/${search}`
-    if (!search) setArtists([])
-    if (search)
-      fetch(url)
-        .then((response) => response.json())
-        .then(({ artists }) => {
-          setArtists(artists)
-          setSearch('')
-        })
+    if (!keywords) return null //TODO  validate imput
+    const artistsArray = await searchArtists(keywords)
+
+    if (artistsArray) {
+      setArtists(artistsArray)
+      setKeywords('')
+    }
   }
 
   return (
@@ -50,12 +52,17 @@ export default function Home() {
           </p>
         </div>
         <div className={styles.search__form}>
-          <form onSubmit={handleSubmit}>
-            <input type="text" value={search} onChange={handleChange} />
+          <form onSubmit={handleSubmit} autoComplete="on">
+            <input
+              type="text"
+              value={keywords}
+              onChange={handleChange}
+              autoComplete="on"
+            />
             <Button className={styles.search__form__button}>Search</Button>
           </form>
         </div>
-        {artists.length ? <SearchResults artists={artists} /> : null}
+        {artists?.length ? <SearchResults artists={artists} /> : null}
       </main>
     </div>
   )
@@ -63,7 +70,6 @@ export default function Home() {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getSession(context)
-
   if (!session) {
     return {
       redirect: {
